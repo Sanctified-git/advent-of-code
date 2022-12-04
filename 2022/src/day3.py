@@ -8,7 +8,7 @@ def priority (c: str):
         return ord(c) - ord('A') + 27   ## from 27 to 52
 
 def day3():
-    input: list = get_input(splitext(basename(__file__))[0])
+    input: list = get_input(strip_name(__file__))
     
     ### PART ONE ###
     result = 0

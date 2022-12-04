@@ -1,8 +1,8 @@
-from os.path import splitext, basename
+
 from utils.io import *
 
 def day1():
-    input: list = get_input(splitext(basename(__file__))[0])
+    input: list = get_input(strip_name(__file__))
     sum: list[int] = [0]
 
     for l in input:
