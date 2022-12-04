@@ -1,4 +1,3 @@
-from os.path import splitext, basename
 from utils.io import *
 
 def priority (c: str): 
@@ -12,6 +11,7 @@ def day3():
     
     ### PART ONE ###
     result = 0
+
     for l in input:
         c1 = l[:int(len(l)/2)]
         c2 = l[int(len(l)/2):]
@@ -20,6 +20,7 @@ def day3():
         
     ### PART TWO ###
     result2 = 0
+    
     for i in range(0, len(input), 3):
         result2 += priority(''.join(set(input[i]).intersection(input[i+1], input[i+2])))
 

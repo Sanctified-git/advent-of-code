@@ -1,4 +1,3 @@
-from os.path import splitext, basename
 from utils.io import *
 
 def day2():
@@ -12,6 +11,7 @@ def day2():
 
     ### PART ONE ###
     total1 = 0
+
     for l in input:
         round: list = l.split(' ')
         total1 += value[round[1]]
@@ -38,6 +38,7 @@ def day2():
 
     ### PART TWO ###
     total2 = 0
+    
     for l in input:
         round: list = l.split(' ')
         match round[0]:

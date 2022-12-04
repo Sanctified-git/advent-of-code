@@ -1,4 +1,3 @@
-
 from utils.io import *
 
 def day1():
@@ -10,6 +9,7 @@ def day1():
             sum.append(0)
         else:
             sum[len(sum)-1] += int(l)
+
     sum.sort(reverse=True)
 
     print(f"The maximum gathered is {sum[0]} calories")

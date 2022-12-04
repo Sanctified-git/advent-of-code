@@ -1,4 +1,3 @@
-from os.path import splitext, basename
 from utils.io import *
 
 def day4():
@@ -6,6 +5,7 @@ def day4():
     
     include = 0
     overlap = 0
+    
     for l in input:
         pair: list = l.split(',')
         a: list[int] = [eval(i) for i in pair[0].split('-')]
