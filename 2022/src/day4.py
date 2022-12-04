@@ -1,7 +1,7 @@
 from utils.io import *
 
 def day4():
-    input: list = get_input(strip_name(__file__))
+    input: list = get_input(__file__)
     
     include = 0
     overlap = 0
@@ -24,3 +24,4 @@ def day4():
 
 if __name__ == "__main__":
     day4()
+    

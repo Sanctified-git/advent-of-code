@@ -1,7 +1,7 @@
-from utils.io import *
+from utils.io import get_input
 
 def day1():
-    input: list = get_input(strip_name(__file__))
+    input: list = get_input(__file__)
     sum: list[int] = [0]
 
     for l in input:
@@ -14,7 +14,6 @@ def day1():
 
     print(f"The maximum gathered is {sum[0]} calories")
     print(f"The top three elves collectively gathered {sum[0]+sum[1]+sum[2]} calories")
-
 
 if __name__ == "__main__":
     day1()

@@ -1,7 +1,7 @@
 from utils.io import *
 
 def day2():
-    input: list = get_input(strip_name(__file__))
+    input: list = get_input(__file__)
         
     value: dict = {
         "X": 1,
@@ -70,3 +70,4 @@ def day2():
 
 if __name__ == "__main__":
     day2()
+    
