@@ -1,7 +1,7 @@
 from utils.io import *
 
 def day2():
-    input: list = get_input(__file__)
+    input: list = get_input(__file__).split('\n')
         
     value: dict = {
         "X": 1,
