@@ -1,7 +1,7 @@
 from utils.io import *
 
 def day4():
-    input: list = get_input(__file__).split('\n')
+    input: list = get_input(__file__)
     
     include = 0
     overlap = 0

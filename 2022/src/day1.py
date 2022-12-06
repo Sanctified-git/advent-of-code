@@ -1,7 +1,7 @@
 from utils.io import get_input
 
 def day1():
-    input: list = get_input(__file__).split('\n')
+    input: list = get_input(__file__)
     sum: list[int] = [0]
 
     for l in input:

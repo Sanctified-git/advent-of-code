@@ -1,7 +1,7 @@
 from utils.io import *
 
 def day5(crateMover9001: bool = False):
-    input: list = get_input(__file__).split('\n')
+    input: list = get_input(__file__)
 
     stacks_raw = [
         ( row.replace("    ", " [ ]").strip().replace("[", "").replace("] ", "").replace("]", "") ) # Remove all brackets
