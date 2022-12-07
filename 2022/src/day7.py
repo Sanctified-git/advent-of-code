@@ -9,9 +9,15 @@ class File():
         self.size = size
 
 class Directory():
-    def __init__(self, dirs = {}, files = {}) -> None:
-        self.dirs: dict[str, Directory] = dirs  # Container for subdirectories
-        self.files: dict[str, File] = files     # Container for files in the directory
+    def __init__(self) -> None:
+        self.dirs: dict[str, Directory] = {}    # Container for subdirectories
+        self.files: dict[str, File] = {}        # Container for files in the directory
+    
+    def add_file(self, name, size):
+        if name not in self.files: self.files[name] = File(size)
+
+    def add_dir(self, name):
+        if name not in self.dirs: self.dirs[name] = Directory()
 
 def update_path(path:list[str], new_dir: str): # Update current path with the new directory
     if new_dir == '..' and path:
@@ -21,12 +27,11 @@ def update_path(path:list[str], new_dir: str): # Update current path with the ne
 
 def insert_node(tree: Directory, node: str, path: list[str]): # Insert new node in the tree at a given path
     if not path:
-        size, name = node.split(' ')
-        if name not in dict(tree.dirs, **tree.files):
-            if size == 'dir':
-                tree.dirs[name] = Directory()
-            else:
-                tree.files[name] = File(int(size))
+        val, name = node.split(' ')
+        if val == 'dir':
+            tree.add_dir(name)
+        else:
+            tree.add_file(name, int(val))
     else:
         insert_node(tree.dirs[path[0]], node, path[1:])
 
@@ -47,7 +52,7 @@ def dir_size(tree: Directory, find_candidate: bool = False) -> int: # Compute th
 
 def day7():
     input: list[str] = get_input(__file__)
-    root = Directory('/')                   # Container for the filesystem tree
+    root = Directory()                   # Container for the filesystem tree
     cur_path: list[str] = []                # Path to the current working directory in the tree
     global to_delete, candidate
 
