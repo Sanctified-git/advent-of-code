@@ -2,7 +2,7 @@ from utils.io import get_input
 
 def scenic_score(i: int, j:int) -> int: # Compute a tree's scenic score
     global input, i_max, j_max
-    reference = int(input[i][j]) # Tree whose scenic score is being computed
+    reference = int(input[i][j]) # Height of the tree whose scenic score is being computed
     N_sum, S_sum, E_sum, W_sum = (0, 0, 0, 0) # Partial sums for each direction
 
     for N in reversed(range(0, i)):
@@ -27,7 +27,8 @@ def scenic_score(i: int, j:int) -> int: # Compute a tree's scenic score
 def day8():
     global input, i_max, j_max
     max_scenic_score = 0
-    visible_trees = 2*i_max + 2*(j_max-2) # All the trees on the edge of the grid are visible
+    visible_trees = 2*i_max + 2*(j_max-2) # All the trees on the edge of the grid are visible                                         
+    # The subtraction accounts for the trees on the corners of the grid which would otherwise be counted twice
 
     for i in range(1, i_max-1):
         for j in range(1, j_max-1): # For every tree, check if :
