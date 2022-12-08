@@ -1,6 +1,7 @@
 from utils.io import *
 
 def day6(marker_size: int):
+    '''https://adventofcode.com/2022/day/6'''
     input: list = [*get_input(__file__)[0]]
     processed = marker_size
     for i in range(marker_size, len(input)):

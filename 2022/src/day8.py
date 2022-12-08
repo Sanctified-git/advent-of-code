@@ -1,6 +1,7 @@
 from utils.io import get_input
 
-def scenic_score(i: int, j:int) -> int: # Compute a tree's scenic score
+def scenic_score(i: int, j:int) -> int: 
+    '''Compute a tree's scenic score'''
     global input, i_max, j_max
     reference = int(input[i][j]) # Height of the tree whose scenic score is being computed
     N_sum, S_sum, E_sum, W_sum = (0, 0, 0, 0) # Partial sums for each direction
@@ -25,6 +26,7 @@ def scenic_score(i: int, j:int) -> int: # Compute a tree's scenic score
     return N_sum * S_sum * W_sum * E_sum
 
 def day8():
+    '''https://adventofcode.com/2022/day/8'''
     global input, i_max, j_max
     max_scenic_score = 0
     visible_trees = 2*i_max + 2*(j_max-2) # All the trees on the edge of the grid are visible                                         

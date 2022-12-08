@@ -1,12 +1,14 @@
 from utils.io import *
 
-def priority (c: str): 
+def priority (c: str):
+    '''Compute the priority of an item'''
     if c >= 'a':
         return ord(c) - ord('a') + 1    ## from 1 to 26
     else:
         return ord(c) - ord('A') + 27   ## from 27 to 52
 
 def day3():
+    '''https://adventofcode.com/2022/day/3'''
     input: list = get_input(__file__)
     
     ### PART ONE ###

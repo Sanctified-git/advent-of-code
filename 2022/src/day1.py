@@ -1,6 +1,7 @@
 from utils.io import get_input
 
 def day1():
+    '''https://adventofcode.com/2022/day/1'''
     input: list = get_input(__file__)
     sum: list[int] = [0]
 

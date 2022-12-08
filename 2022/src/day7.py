@@ -19,13 +19,15 @@ class Directory():
     def add_dir(self, name):
         if name not in self.dirs: self.dirs[name] = Directory()
 
-def update_path(path:list[str], new_dir: str): # Update current path with the new directory
+def update_path(path:list[str], new_dir: str): 
+    '''Update current path with the new directory'''
     if new_dir == '..' and path:
         path.pop() # Go back one directory
     else:
         path.append(new_dir) # Go into the given subdirectory
 
-def insert_node(tree: Directory, node: str, path: list[str]): # Insert new node in the tree at a given path
+def insert_node(tree: Directory, node: str, path: list[str]):
+    '''Insert new node in the tree at a given path'''
     if not path:
         val, name = node.split(' ')
         if val == 'dir':
@@ -35,7 +37,8 @@ def insert_node(tree: Directory, node: str, path: list[str]): # Insert new node 
     else:
         insert_node(tree.dirs[path[0]], node, path[1:])
 
-def dir_size(tree: Directory, find_candidate: bool = False) -> int: # Compute the size of all directories
+def dir_size(tree: Directory, find_candidate: bool = False) -> int:
+    '''Compute the size of all directories'''
     global result, to_delete, candidate
     subtree_size = sum(f.size for f in tree.files.values()) # Sum the sizes of all files in this directory
     
@@ -51,6 +54,7 @@ def dir_size(tree: Directory, find_candidate: bool = False) -> int: # Compute th
     return subtree_size
 
 def day7():
+    '''https://adventofcode.com/2022/day/7'''
     input: list[str] = get_input(__file__)
     root = Directory()                   # Container for the filesystem tree
     cur_path: list[str] = []                # Path to the current working directory in the tree
