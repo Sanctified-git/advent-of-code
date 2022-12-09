@@ -6,19 +6,19 @@ def scenic_score(i: int, j:int) -> int:
     reference = int(input[i][j]) # Height of the tree whose scenic score is being computed
     N_sum, S_sum, E_sum, W_sum = (0, 0, 0, 0) # Partial sums for each direction
 
-    for N in reversed(range(0, i)):
+    for N in reversed(range(0, i)): # North
         N_sum += 1
         if reference <= int(input[N][j]):
             break
-    for S in range(i+1, i_max):
+    for S in range(i+1, i_max):     # South
         S_sum += 1
         if reference <= int(input[S][j]):
             break
-    for W in reversed(range(0, j)):
+    for W in reversed(range(0, j)): # West
         W_sum += 1
         if reference <= int(input[i][W]):
             break
-    for E in range(j+1, j_max):
+    for E in range(j+1, j_max):     # East
         E_sum += 1
         if reference <= int(input[i][E]):
             break

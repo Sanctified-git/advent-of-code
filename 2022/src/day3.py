@@ -1,6 +1,6 @@
 from utils.io import *
 
-def priority (c: str):
+def priority (c: str) -> int:
     '''Compute the priority of an item'''
     if c >= 'a':
         return ord(c) - ord('a') + 1    ## from 1 to 26
