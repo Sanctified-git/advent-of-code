@@ -1,20 +1,17 @@
 from utils.io import *
 
+
 def day2():
-    '''https://adventofcode.com/2022/day/2'''
+    """https://adventofcode.com/2022/day/2"""
     input: list = get_input(__file__)
-        
-    value: dict = {
-        "X": 1,
-        "Y": 2,
-        "Z": 3
-    }
+
+    value: dict = {"X": 1, "Y": 2, "Z": 3}
 
     ### PART ONE ###
     total1 = 0
 
     for l in input:
-        round: list = l.split(' ')
+        round: list = l.split(" ")
         total1 += value[round[1]]
         match round[0]:
             case "A":
@@ -39,36 +36,36 @@ def day2():
 
     ### PART TWO ###
     total2 = 0
-    
+
     for l in input:
-        round: list = l.split(' ')
+        round: list = l.split(" ")
         match round[0]:
-            case "A": # Rock
+            case "A":  # Rock
                 match round[1]:
-                    case "X": # Loss
+                    case "X":  # Loss
                         total2 += 3
-                    case "Y": # Draw
+                    case "Y":  # Draw
                         total2 += 4
-                    case "Z": # Win
+                    case "Z":  # Win
                         total2 += 8
-            case "B": # Paper
+            case "B":  # Paper
                 match round[1]:
-                    case "X": # Loss
+                    case "X":  # Loss
                         total2 += 1
-                    case "Y": # Draw
+                    case "Y":  # Draw
                         total2 += 5
-                    case "Z": # Win
+                    case "Z":  # Win
                         total2 += 9
-            case "C": # Scissors
+            case "C":  # Scissors
                 match round[1]:
-                    case "X": # Loss
+                    case "X":  # Loss
                         total2 += 2
-                    case "Y": # Draw
+                    case "Y":  # Draw
                         total2 += 6
-                    case "Z": # Win
+                    case "Z":  # Win
                         total2 += 7
     print(f"The total score for part two is {total2}")
 
+
 if __name__ == "__main__":
     day2()
-    
