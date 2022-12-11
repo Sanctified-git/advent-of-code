@@ -37,8 +37,7 @@ class Monkey:
 
             if self.relief:
                 i //= 3
-
-            if i > Monkey.common_divisor:
+            elif i > Monkey.common_divisor:
                 i %= Monkey.common_divisor
 
             self.inspected += 1
@@ -93,4 +92,4 @@ def day11(rounds: int, relief: bool = True):
 if __name__ == "__main__":
     monkeys: list[Monkey]
     day11(20)  # PART ONE
-    day11(10000, True)  # PART TWO
+    day11(10000, False)  # PART TWO
