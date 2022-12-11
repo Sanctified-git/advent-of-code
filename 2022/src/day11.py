@@ -1,7 +1,6 @@
 from dataclasses import dataclass
 from typing import Callable
 from utils.io import get_input
-from cProfile import Profile
 
 
 @dataclass
@@ -13,14 +12,6 @@ class Monkey:
     relief: bool
     inspected: int = 0
     common_divisor: int = 1
-
-    def __init__(self, items, operation, divisor, targets, relief) -> None:
-        self.items = items
-        self.operation = operation
-        self.divisor = divisor
-        self.targets = targets
-        self.relief = relief
-        Monkey.common_divisor *= self.divisor
 
     def throw_item(self, item) -> int:
         if not item % self.divisor:
@@ -70,6 +61,7 @@ def day11(rounds: int, relief: bool = True):
             operation = eval("lambda old: " + " ".join(args[-3:]))
         elif args[0] == "Test:":
             divisor = int(args.pop())
+            Monkey.common_divisor *= divisor
         elif args[1] == "true:":
             targets.append(int(args.pop()))
         elif args[1] == "false:":
