@@ -19,7 +19,7 @@ def is_ordered(left, right) -> bool:
         right = [right]
 
     # When we get to this point, both operands are lists
-    # Check if any of the operands is empty
+    # Check if any of the operands are empty
     if (not right) and not left:
         return None
     elif not left:
@@ -30,18 +30,18 @@ def is_ordered(left, right) -> bool:
     i = 0
     ordered = None
     while i < len(left) and ordered is None:
-        if i >= len(right):  # The right list is shorter
+        if i >= len(right):  # The right list is shorter therefore the pair is in the wrong order
             return False
         ordered = is_ordered(left[i], right[i])
         if ordered is None and i == len(left) - 1 and i < len(right) - 1:
-            # The left list is shorter than the right with all else being equal
+            # The left list is shorter than the right with all else being equal, which is the correct order
             return True
         i += 1
     return ordered
 
 
 def compare(left: str, right: str) -> int:
-    bool_to_cmp: dict = {True: -1, None: 0, False: 1}
+    bool_to_cmp: dict = {True: -1, None: 0, False: 1} # These are the values expected by sorted()
     return bool_to_cmp[is_ordered(literal_eval(left), literal_eval(right))]
 
 
