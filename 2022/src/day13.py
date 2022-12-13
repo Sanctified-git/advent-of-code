@@ -41,15 +41,15 @@ def is_ordered(left, right) -> bool:
 
 
 def compare(left: str, right: str) -> int:
-    bool_to_int: dict = {True: -1, None: 0, False: 1}
-    return bool_to_int[is_ordered(literal_eval(left), literal_eval(right))]
+    bool_to_cmp: dict = {True: -1, None: 0, False: 1}
+    return bool_to_cmp[is_ordered(literal_eval(left), literal_eval(right))]
 
 
 def count_ordered_pairs(pairs: list) -> int:
     count = 0
     for i in range(len(pairs)):
         left, right = [literal_eval(packet) for packet in pairs[i].split("\n")]
-        if is_ordered(left, right):
+        if is_ordered(left, right) in [True, None]:
             count += i + 1
     return count
 
