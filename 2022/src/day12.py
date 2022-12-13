@@ -1,3 +1,4 @@
+"""https://adventofcode.com/2022/day/12"""
 import numpy as np
 from queue import Queue
 from utils.io import get_input
@@ -40,7 +41,6 @@ def neighbors(item: tuple) -> list[tuple]:
 
 
 def breadth_first_search(start: tuple, goal: tuple) -> int:
-    """https://adventofcode.com/2022/day/12"""
 
     frontier = Queue()
     frontier.put(start, 0)
