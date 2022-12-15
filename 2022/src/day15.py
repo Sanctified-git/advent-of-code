@@ -55,7 +55,7 @@ def find_tuning_frequency(sensors: set, limit: int) -> int:
                 0 <= x <= limit and 0 <= y <= limit
                 and all(dist(s, complex(x, y)) > r for s, r in sensors)
             ):
-                return x * 4000000 + y
+                return x * LIMIT + y
 
 
 if __name__ == "__main__":
@@ -71,6 +71,6 @@ if __name__ == "__main__":
 
     ### PART TWO ###
     print(
-        f"The distress beacon's tuning frequency is {int(find_tuning_frequency(sensors, limit=4000000))}"
+        f"The distress beacon's tuning frequency is {int(find_tuning_frequency(sensors, limit=LIMIT))}"
     )
     t.stop()
