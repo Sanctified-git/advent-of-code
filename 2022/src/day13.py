@@ -41,7 +41,6 @@ def is_ordered(left, right) -> bool:
 
 
 def compare(left: str, right: str) -> int:
-    bool_to_cmp: dict = {True: -1, None: 0, False: 1} # These are the values expected by sorted()
     return bool_to_cmp[is_ordered(literal_eval(left), literal_eval(right))]
 
 
@@ -55,16 +54,15 @@ def count_ordered_pairs(pairs: list) -> int:
 
 
 if __name__ == "__main__":
-
-    ### PART ONE ###
-
     packet_pairs: list = get_input(__file__, "\n\n")
+    
+    ### PART ONE ###
     print(f"{count_ordered_pairs(packet_pairs)} pairs of packets are in the right order")
 
     ### PART TWO ###
-
     divider_packets: list = ["[[2]]", "[[6]]"]
     packets: list = divider_packets
+    bool_to_cmp: dict = {True: -1, None: 0, False: 1} # These are the values expected by sorted()
 
     for p in packet_pairs:
         packets.extend(p.split("\n"))
