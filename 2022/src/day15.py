@@ -61,16 +61,12 @@ def find_tuning_frequency(sensors: set, limit: int) -> int:
 if __name__ == "__main__":
     t = Timer()
     sensors, beacons = parse_input(get_input(__file__))
-    t.start()
 
     ### PART ONE ###
-    print(
-        f"{int(get_blocked_positions(sensors, beacons, y=ROW))} positions cannot contain a beacon in row {ROW}"
-    )
+    t.start()
+    print(f"{int(get_blocked_positions(sensors, beacons, y=ROW))} positions cannot contain a beacon in row {ROW}")
     t.step()
 
     ### PART TWO ###
-    print(
-        f"The distress beacon's tuning frequency is {int(find_tuning_frequency(sensors, limit=LIMIT))}"
-    )
+    print(f"The distress beacon's tuning frequency is {int(find_tuning_frequency(sensors, limit=LIMIT))}")
     t.stop()
