@@ -1,4 +1,5 @@
 from utils.io import get_input
+from utils.timer import Timer
 
 MAX_SIZE = 100000
 TOTAL_SPACE = 70000000
@@ -71,11 +72,14 @@ def dir_size(tree: Directory, find_candidate: bool = False) -> int:
 def day7():
     """https://adventofcode.com/2022/day/7"""
     input: list[str] = get_input(__file__)
+    t = Timer()
     root = Directory()  # Container for the filesystem tree
     # Path to the current working directory in the tree
     cur_path: list[str] = []
     global to_delete, candidate
 
+    t.start()
+    print("Preparing filesystem")
     # Skip the first line because it is pointless for us
     iterator = iter(range(1, len(input)))
     for i in iterator:
@@ -88,14 +92,15 @@ def day7():
                         insert_node(root, input[i], cur_path)
                 case "cd":
                     update_path(cur_path, str(command[3:]))
+    t.step()
 
     to_delete = NEEDED_SPACE + dir_size(root) - TOTAL_SPACE
-
     print(f"The total size of all the directories of at most {MAX_SIZE} is {result}")
+    t.step()
 
     dir_size(root, True)
-
     print(f"The size of smallest directory that would free enough space is {candidate}")
+    t.stop()
 
 
 if __name__ == "__main__":

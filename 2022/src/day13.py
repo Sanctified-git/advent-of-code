@@ -2,6 +2,7 @@
 from utils.io import get_input
 from ast import literal_eval
 from functools import cmp_to_key
+from utils.timer import Timer
 
 
 def is_ordered(left, right) -> bool:
@@ -54,10 +55,13 @@ def count_ordered_pairs(pairs: list) -> int:
 
 
 if __name__ == "__main__":
+    t = Timer()
     packet_pairs: list = get_input(__file__, "\n\n")
     
     ### PART ONE ###
+    t.start()
     print(f"{count_ordered_pairs(packet_pairs)} pairs of packets are in the right order")
+    t.step()
 
     ### PART TWO ###
     divider_packets: list = ["[[2]]", "[[6]]"]
@@ -69,3 +73,4 @@ if __name__ == "__main__":
     sorted_packets: list = sorted(packets, key=cmp_to_key(compare))
     decoder_key = (sorted_packets.index(divider_packets[0]) + 1) * (sorted_packets.index(divider_packets[1]) + 1)
     print(f"The decoder key for the distress signal is {decoder_key}")
+    t.stop()

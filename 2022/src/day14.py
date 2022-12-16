@@ -3,6 +3,7 @@ from utils.io import get_input
 from copy import deepcopy
 from itertools import pairwise, count
 from re import findall
+from utils.timer import Timer
 
 
 def sign(x, y):
@@ -52,8 +53,14 @@ def pour_sand(blocked, floor, part_two: bool = False):
 
 
 if __name__ == "__main__":
+    t = Timer()
     rocks, floor = place_rocks(get_input(__file__))
+
     ### PART ONE ###
+    t.start()
     print(f"{pour_sand(deepcopy(rocks), floor)} units of sand can come to rest on the rock formations")
+    t.step()
+    
     ### PART TWO ###
     print(f"{pour_sand(rocks, floor, part_two=True)} units of sand can come to rest before the source is blocked")
+    t.stop()

@@ -1,4 +1,5 @@
 from utils.io import *
+from utils.timer import Timer
 
 
 def day5(crateMover9001: bool = False):
@@ -44,6 +45,9 @@ def day5(crateMover9001: bool = False):
 
 
 if __name__ == "__main__":
-    print(
-        f"The top of the stacks is {day5(False)} with the CrateMover 9000 and {day5(True)} with the CrateMover 9001"
-    )
+    t = Timer()
+    t.start()
+    print(f"The top of the stacks is {day5(False)} with the CrateMover 9000") 
+    t.step()
+    print(f"The top of the stacks is {day5(True)} with the CrateMover 9001")
+    t.stop()

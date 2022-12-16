@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from typing import Callable
 from utils.io import get_input
+from utils.timer import Timer
 
 
 @dataclass
@@ -82,6 +83,10 @@ def day11(rounds: int, relief: bool = True):
 
 
 if __name__ == "__main__":
+    t = Timer()
     monkeys: list[Monkey]
+    t.start()
     day11(20)  # PART ONE
+    t.step()
     day11(10000, False)  # PART TWO
+    t.stop()

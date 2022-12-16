@@ -1,4 +1,5 @@
 from utils.io import get_input
+from utils.timer import Timer
 
 
 def day1():
@@ -19,4 +20,7 @@ def day1():
 
 
 if __name__ == "__main__":
+    t = Timer()
+    t.start()
     day1()
+    t.stop()

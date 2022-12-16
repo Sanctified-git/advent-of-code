@@ -1,4 +1,5 @@
 from utils.io import get_input
+from utils.timer import Timer
 
 ROW_LENGTH = 40
 
@@ -58,4 +59,7 @@ def day10():
 
 
 if __name__ == "__main__":
+    t = Timer()
+    t.start()
     day10()
+    t.stop()

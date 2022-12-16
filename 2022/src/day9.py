@@ -1,4 +1,5 @@
 from utils.io import get_input
+from utils.timer import Timer
 
 
 class Rope:
@@ -38,8 +39,10 @@ class Rope:
 
 def day9():
     """https://adventofcode.com/2022/day/9"""
+    t = Timer()
 
     ### PART ONE ###
+    t.start()
     rope = Rope()
     input: list = get_input(__file__)
     for line in input:
@@ -48,6 +51,7 @@ def day9():
             rope.move_head(direction)
 
     print(f"The tail of the rope has visited {len(rope.visited)} positions")
+    t.step()
 
     ### PART TWO ###
     rope = [Rope() for _ in range(9)]  # Rope is now ten knots long
@@ -60,6 +64,7 @@ def day9():
                 rope[i + 1].set_head(rope[i].tail)
 
     print(f"The tail of the new rope has visited {len(rope[8].visited)} positions")
+    t.stop()
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-"""https://adventofcode.com/2022/day/14"""
+"""https://adventofcode.com/2022/day/15"""
 from utils.io import get_input
 from utils.timer import Timer
 from re import findall
@@ -26,7 +26,7 @@ def parse_input(input: list) -> tuple[set, set]:
     return sensors, beacons
 
 
-def get_overlap(sensors, y) -> tuple[int, int]:
+def get_overlap(sensors: set, y: int) -> tuple[int, int]:
     for sensor, distance in sensors:
         overlap = distance - abs(sensor.imag - y)
         if overlap >= 0:
@@ -39,7 +39,7 @@ def get_blocked_positions(sensors: set, beacons: set, y: int) -> int:
     return max(right) + 1 - min(left) - overlapping_beacons
 
 
-def get_border(sensor, radius) -> tuple[int, int]:
+def get_border(sensor: complex, radius: int) -> tuple[int, int]:
     for dx in range(radius + 2):
         dy = radius + 1 - dx
         yield sensor.real + dx, sensor.imag + dy
@@ -60,10 +60,12 @@ def find_tuning_frequency(sensors: set, limit: int) -> int:
 
 if __name__ == "__main__":
     t = Timer()
+    t.start()
+    print("Parsing input")
     sensors, beacons = parse_input(get_input(__file__))
+    t.step()
 
     ### PART ONE ###
-    t.start()
     print(f"{int(get_blocked_positions(sensors, beacons, y=ROW))} positions cannot contain a beacon in row {ROW}")
     t.step()
 

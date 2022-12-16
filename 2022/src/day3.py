@@ -1,4 +1,5 @@
 from utils.io import *
+from utils.timer import Timer
 
 
 def priority(c: str) -> int:
@@ -12,8 +13,10 @@ def priority(c: str) -> int:
 def day3():
     """https://adventofcode.com/2022/day/3"""
     input: list = get_input(__file__)
+    t = Timer()
 
     ### PART ONE ###
+    t.start()
     result = 0
 
     for l in input:
@@ -23,6 +26,7 @@ def day3():
     print(
         f"The sum of the priorities of the all the items common to both compartments of a rucksack is {result}"
     )
+    t.step()
 
     ### PART TWO ###
     result2 = 0
@@ -33,6 +37,7 @@ def day3():
         )
 
     print(f"The sum of the priorities of all the group badges is {result2}")
+    t.stop()
 
 
 if __name__ == "__main__":

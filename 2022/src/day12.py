@@ -2,6 +2,7 @@
 import numpy as np
 from queue import Queue
 from utils.io import get_input
+from utils.timer import Timer
 
 E_COST = 69
 S_COST = 83
@@ -68,6 +69,7 @@ def breadth_first_search(start: tuple, goal: tuple) -> int:
 
 
 if __name__ == "__main__":
+    t = Timer()
     grid: list = get_input(__file__)
     npgrid: np.ndarray = np.ndarray((len(grid), len(grid[0])), dtype="U1")
 
@@ -78,12 +80,12 @@ if __name__ == "__main__":
     goal: tuple = tuple(x[0] for x in np.where(npgrid == "E"))
 
     ### PART ONE ###
-
+    t.start()
     start: tuple = tuple(x[0] for x in np.where(npgrid == "S"))
     print(f"Getting from S to E takes at least {breadth_first_search(start, goal)} steps")
+    t.step()
 
     ### PART TWO ###
-
     candidates: list[tuple] = []
     matches = np.where(npgrid == "a")
     for i in range(len(matches[0]) - 1):
@@ -91,3 +93,4 @@ if __name__ == "__main__":
     steps: set = sorted(set([breadth_first_search(start, goal) for start in candidates]))
     steps.remove(0)
     print(f"Getting from any a to E takes at least {steps[0]} steps")
+    t.stop()

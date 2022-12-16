@@ -1,13 +1,16 @@
 from utils.io import *
+from utils.timer import Timer
 
 
 def day2():
     """https://adventofcode.com/2022/day/2"""
+    t = Timer()
     input: list = get_input(__file__)
 
     value: dict = {"X": 1, "Y": 2, "Z": 3}
 
     ### PART ONE ###
+    t.start()
     total1 = 0
 
     for l in input:
@@ -33,6 +36,7 @@ def day2():
                     case "Z":
                         total1 += 3
     print(f"The total score for part one is {total1}")
+    t.step()
 
     ### PART TWO ###
     total2 = 0
@@ -65,6 +69,7 @@ def day2():
                     case "Z":  # Win
                         total2 += 7
     print(f"The total score for part two is {total2}")
+    t.stop()
 
 
 if __name__ == "__main__":

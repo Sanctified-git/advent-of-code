@@ -1,4 +1,5 @@
 from utils.io import get_input
+from utils.timer import Timer
 
 
 def scenic_score(i: int, j: int) -> int:
@@ -63,7 +64,10 @@ def day8():
 
 
 if __name__ == "__main__":
+    t = Timer()
     input: list = get_input(__file__)
     i_max = len(input)
     j_max = len(input[0])
+    t.start()
     day8()
+    t.stop()

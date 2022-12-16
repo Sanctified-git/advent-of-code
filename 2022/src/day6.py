@@ -1,4 +1,5 @@
 from utils.io import *
+from utils.timer import Timer
 
 
 def day6(marker_size: int):
@@ -13,6 +14,14 @@ def day6(marker_size: int):
 
 
 if __name__ == "__main__":
-    print(
-        f"First start-of-packet marker found after processing {day6(4)} characters. \nFirst start-of-message marker found after processing {day6(14)} characters."
-    )
+    t = Timer()
+
+    ### PART ONE ###
+    t.start()
+    print(f"First start-of-packet marker found after processing {day6(4)} characters.")
+    t.step()
+
+    ### PART TWO ###
+    print(f"First start-of-message marker found after processing {day6(14)} characters.")
+    t.stop()
+    
