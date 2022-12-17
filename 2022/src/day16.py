@@ -75,15 +75,8 @@ if __name__ == "__main__":
     ### PART TWO ###
     maxscore = defaultdict(int)
 
-    # for solution in solutions(distance, flow_rates, good, TIME-4):
-    #     if (s:= score(solution)) > maxscore[(k := frozenset(solution))]:
-    #         maxscore[k] = s
-
     for solution in solutions(distance, flow_rates, good, TIME-4):
-        k = frozenset(solution)
-        s = score(solution)
-
-        if s > maxscore[k]:
+        if (s:= score(solution)) > maxscore[(k := frozenset(solution))]:
             maxscore[k] = s
 
     best = max(sa + sb for (a, sa), (b, sb) in combinations(maxscore.items(), 2) if not a & b)
