@@ -27,7 +27,7 @@ impl Timer {
     /// Report the elapsed time
     pub fn step(self, name: &str) {
         let elapsed_time = self.start_time.elapsed();
-        println!("Elapsed time for {} : {:?}", strip_name(name), elapsed_time);
+        println!("Elapsed time for {} : {:?}\n", strip_name(name), elapsed_time);
     }
 }
 
