@@ -1,4 +1,4 @@
-use crate::utils;
+use rust_utils::utils;
 
 fn compute_sum() {
 	let input = utils::get_input(file!(), None);

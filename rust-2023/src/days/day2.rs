@@ -1,6 +1,6 @@
+use rust_utils::utils;
 use regex::Regex;
 use core::cmp::max;
-use crate::utils;
 
 fn check_games() {
 	let input = utils::get_input(file!(), None);
@@ -40,7 +40,7 @@ fn check_games() {
 	}
 
 	println!("The sum of calibration values is {}", part_one_sum);
-	
+
 	// PART TWO
 	for mut l in input {
 		let (_, rounds) = l.split_at_mut(8);

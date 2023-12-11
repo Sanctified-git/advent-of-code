@@ -1,5 +1,5 @@
+use rust_utils::utils;
 use std::collections::HashMap;
-use crate::utils;
 
 fn compute_sum() {
 	let input = utils::get_input(file!(), None);

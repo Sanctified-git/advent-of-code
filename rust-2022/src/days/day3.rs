@@ -1,4 +1,4 @@
-use crate::utils;
+use rust_utils::utils;
 use std::collections::HashSet;
 
 /// Compute the priority of an item

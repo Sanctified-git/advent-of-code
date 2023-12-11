@@ -1,4 +1,4 @@
-use crate::utils;
+use rust_utils::utils;
 
 /// Compute the number of included and overlapping pairs
 fn compare_pairs() {

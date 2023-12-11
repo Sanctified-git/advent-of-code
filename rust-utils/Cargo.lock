@@ -3,12 +3,5 @@
 version = 3
 
 [[package]]
-name = "rust-2022"
-version = "0.1.0"
-dependencies = [
- "rust-utils",
-]
-
-[[package]]
 name = "rust-utils"
 version = "0.1.0"

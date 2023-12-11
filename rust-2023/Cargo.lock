@@ -51,4 +51,9 @@ name = "rust-2023"
 version = "0.1.0"
 dependencies = [
  "regex",
+ "rust-utils",
 ]
+
+[[package]]
+name = "rust-utils"
+version = "0.1.0"

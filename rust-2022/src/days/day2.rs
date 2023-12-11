@@ -1,6 +1,6 @@
+use rust_utils::utils;
 use std::hash::Hash;
 use std::collections::HashMap;
-use crate::utils;
 
 trait Memory<A: Eq + Hash, B: Eq + Hash> {
 
