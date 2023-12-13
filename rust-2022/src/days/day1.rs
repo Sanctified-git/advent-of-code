@@ -21,7 +21,7 @@ fn compute_sums() {
 
 /// https://adventofcode.com/2022/day/1
 pub fn main() {
-	let t = utils::build_timer(file!());
+	let mut t = utils::build_timer(file!());
 	compute_sums();
 	t.step(file!());
 }

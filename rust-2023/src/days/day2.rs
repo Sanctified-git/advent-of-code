@@ -9,11 +9,12 @@ fn check_games() {
 	let re_r = Regex::new(r"(\d+) red").unwrap();
 	let re_g = Regex::new(r"(\d+) green").unwrap();
 	let re_b = Regex::new(r"(\d+) blue").unwrap();
+	let mut t = utils::build_timer(file!());
 	
 	// PART ONE
 	let mut game_index = 1;
 	let (r_max, g_max, b_max) = (12, 13, 14);
-	for mut l in input.clone() {
+	for l in input.clone() {
 		let (_, rounds) = l.split_once(": ").unwrap();
 		let (mut red, mut green, mut blue);
 		let mut possible = true;
@@ -40,6 +41,7 @@ fn check_games() {
 	}
 
 	println!("The sum of calibration values is {}", part_one_sum);
+	t.step("part 1");
 
 	// PART TWO
 	for mut l in input {
@@ -72,11 +74,11 @@ fn check_games() {
 	}
 
 	println!("The new sum of calibration values is {}", part_two_sum);
+	t.step("part 2");
+	t.total(file!());
 }
 
 /// https://adventofcode.com/2023/day/2
 pub fn main() {
-	let t = utils::build_timer(file!());
 	check_games();
-	t.step(file!());
 }

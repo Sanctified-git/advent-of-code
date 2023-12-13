@@ -29,7 +29,7 @@ fn compare_pairs() {
 
 /// https://adventofcode.com/2022/day/4
 pub fn main() {
-	let t = utils::build_timer(file!());
+	let mut t = utils::build_timer(file!());
 	compare_pairs();
 	t.step(file!());
 }

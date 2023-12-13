@@ -81,7 +81,7 @@ fn play_rounds() {
 
 /// https://adventofcode.com/2022/day/2
 pub fn main() {
-	let t = utils::build_timer(file!());
+	let mut t = utils::build_timer(file!());
 	play_rounds();
 	t.step(file!());
 }

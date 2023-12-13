@@ -15,21 +15,24 @@ fn compute_sum() {
 		("eight", "e8t"),
 		("nine", "n9e")
 	].into();
+	let mut t = utils::build_timer(file!());
 	
 	// PART ONE
 	for l in input.clone() {
 		part_one_sum += get_calibration_value(l);
 	}
-	
+
 	println!("The sum of calibration values is {}", part_one_sum);
+	t.step("part 1");
 
 	// PART TWO
 	for l in input {
-		let converted_line = convert_spelled_digits(l, &digits);
-		part_two_sum += get_calibration_value(converted_line);
+		part_two_sum += get_calibration_value(convert_spelled_digits(l, &digits));
 	}
 
 	println!("The new sum of calibration values is {}", part_two_sum);
+	t.step("part 2");
+	t.total(file!());
 }
 
 fn get_calibration_value(l: String) -> u32 {
@@ -48,7 +51,5 @@ fn convert_spelled_digits(mut l: String, digits: &HashMap<&str, &str>) -> String
 
 /// https://adventofcode.com/2023/day/1
 pub fn main() {
-	let t = utils::build_timer(file!());
 	compute_sum();
-	t.step(file!());
 }
