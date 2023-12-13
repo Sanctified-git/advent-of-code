@@ -4,7 +4,6 @@ fn compute_sum() {
 	let input = utils::get_input(file!(), None);
 	let mut part_one_sum = 0;
 	let mut part_two_sum = 0;
-
 	
 	// PART ONE
 

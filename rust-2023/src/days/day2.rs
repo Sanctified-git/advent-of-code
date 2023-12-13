@@ -14,7 +14,7 @@ fn check_games() {
 	let mut game_index = 1;
 	let (r_max, g_max, b_max) = (12, 13, 14);
 	for mut l in input.clone() {
-		let (_, rounds) = l.split_at_mut(8);
+		let (_, rounds) = l.split_once(": ").unwrap();
 		let (mut red, mut green, mut blue);
 		let mut possible = true;
 		for round in rounds.split("; ") {
