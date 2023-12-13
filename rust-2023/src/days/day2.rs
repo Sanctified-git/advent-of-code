@@ -20,15 +20,15 @@ fn check_games() {
 		let mut possible = true;
 		for round in rounds.split("; ") {
 			match re_r.captures(round) {
-				Some(caps) => { red = i32::from_str_radix(&caps[1], 10).unwrap(); }
+				Some(caps) => { red = utils::atoi(&caps[1]); }
 				None => { red = 0; }
 			}
 			match re_g.captures(round) {
-				Some(caps) => { green = i32::from_str_radix(&caps[1], 10).unwrap(); }
+				Some(caps) => { green = utils::atoi(&caps[1]); }
 				None => { green = 0; }
 			}
 			match re_b.captures(round) {
-				Some(caps) => { blue = i32::from_str_radix(&caps[1], 10).unwrap(); }
+				Some(caps) => { blue = utils::atoi(&caps[1]); }
 				None => { blue = 0; }
 			}
 			if red > r_max || green > g_max || blue > b_max {
@@ -50,21 +50,21 @@ fn check_games() {
 		for round in rounds.split("; ") {
 			match re_r.captures(round) {
 				Some(caps) => {
-					let value = i32::from_str_radix(&caps[1], 10).unwrap(); 
+					let value = utils::atoi(&caps[1]); 
 					r_min = max(r_min, value)
 				}
 				None => {}
 			}
 			match re_g.captures(round) {
 				Some(caps) => {
-					let value = i32::from_str_radix(&caps[1], 10).unwrap();
+					let value = utils::atoi(&caps[1]);
 					g_min = max(g_min, value)
 				}
 				None => {}
 			}
 			match re_b.captures(round) {
 				Some(caps) => {
-					let value = i32::from_str_radix(&caps[1], 10).unwrap();
+					let value = utils::atoi(&caps[1]);
 					b_min = max(b_min, value)
 				}
 				None => {}

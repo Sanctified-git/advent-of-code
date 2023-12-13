@@ -43,5 +43,10 @@ impl Timer {
 pub fn build_timer(name: &str) -> Timer {
     println!("Starting timer for {}", strip_name(name));
     let timer = Timer { start_time: Instant::now(), step_time: None };
-    return timer
+    return timer;
+}
+
+/// Convert a string slice to an integer
+pub fn atoi(a: &str) -> i32 {
+    return i32::from_str_radix(a, 10).unwrap();
 }
